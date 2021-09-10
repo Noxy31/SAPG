@@ -1,0 +1,137 @@
+WindowManager:
+
+    HomeScreen:
+        name: 'HomePage'
+        BoxLayout:
+            orientation: "vertical"
+            size: root.width, root.height
+            adaptive_height: True
+
+        MDLabel:
+            text: "Welcome to the first guide for Stella Arcana"
+            font_size: "13sp"
+            font_name:"SFProSB"
+            halign: "center"
+
+        MDFillRoundFlatButton:
+            text: "Enter"
+            font_style: "H6"
+            text_color: 0, 0, 0, 1
+            pos_hint: {"center_x": .5, "center_y": .10}
+            elevation_normal: 10
+            on_release:
+                app.root.current = "FirstPage"
+                app.root.transition.direction = "up"
+
+
+    FirstScreen:
+        name: 'FirstPage'
+        BoxLayout:
+            orientation:'vertical'
+            size: root.width, root.height
+
+            MDToolbar:
+                title: "S.A. : Pocket Guide"
+                right_action_items: [["dots-vertical", lambda x: app.callback(x)]]
+                font_name:"SFProSB"
+                md_bg_color: .1, .1, 1, 0
+    #                specific_text_color: 1, 1, 1, 1
+
+
+            MDBottomNavigation:
+    #                panel_color: .6, .8, 1, .5
+
+                MDBottomNavigationItem:
+                    name: 'screen 1'
+                    text: 'Guide'
+                    font_name:"SFProB"
+                    icon: 'language-python'
+
+                    GridLayout:
+                        adaptive_height: True
+                        adaptive_width: True
+                        rows: 5
+                        cols: 1
+
+                        Button:
+                            markup : True
+                            text: '1. Classes : What to choose ?'
+                            halign: 'center'
+                            background_color: .5, .8, 1, .4
+                            font_name:"SFProB"
+                            font_size: "13sp"
+                            on_release:
+                                app.root.current = 'ClasseScreen'
+                                app.root.transition.direction = "left"
+
+                        Button:
+                            markup : True
+                            text: '2. Builds : Tank, DPS or Heal ?'
+                            halign: 'center'
+                            background_color: .5, .8, 1, .4
+                            font_name:"SFProB"
+                            font_size: "13sp"
+
+                        Button:
+                            markup : True
+                            text: '[b]3. Donjon & Raids : Me gusta el pollo[/b]'
+                            halign: 'center'
+                            background_color: .5, .8, 1, .4
+                            font_name:"SFProB"
+                            font_size: "13sp"
+
+                        Button:
+                            markup : True
+                            text: '[b]4. Random : Random [/b]'
+                            halign: 'center'
+                            background_color: .5, .8, 1, .4
+                            font_name:"SFProB"
+                            font_size: "13sp"
+
+                        Button:
+                            markup : True
+                            text: "5. Idk : I really don't know"
+                            halign: 'center'
+                            background_color: .5, .8, 1, .4
+                            font_name:"SFProB"
+                            font_size: "13sp"
+
+
+                MDBottomNavigationItem:
+                    name: 'screen 2'
+                    text: 'Improve'
+                    font_name:"SFProB"
+                    icon: 'language-python'
+
+                    MDLabel:
+                        text: 'Here is how to Improve depending on class ect..'
+                        font_name:"SFProB"
+                        halign: 'center'
+
+                MDBottomNavigationItem:
+                    name: 'screen 3'
+                    text: 'Tips'
+                    font_name:"SFProB"
+                    icon: 'language-python'
+
+                    MDLabel:
+                        text: 'TIPSIESSSS'
+                        font_name:"SFProB"
+                        halign: 'center'
+
+
+    ClasseScreen:
+        name:'ClasseScreen'
+
+        AnchorLayout:
+            anchor_x: 'center'
+            anchor_y: 'top'
+            orientation:'vertical'
+            size: root.width, root.height
+
+            MDToolbar:
+                title: "S.A. : Pocket Guide"
+                font_name:"SFProSB"
+                md_bg_color: .1, .1, 1, 0
+                type: "top"
+                elevation: 10
